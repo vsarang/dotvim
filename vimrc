@@ -1,17 +1,20 @@
 execute pathogen#infect()
+set nocompatible	" Use Vim defaults instead of 100% vi compatibility
+set backspace=2		" more powerful backspacing
+
 " decorations
 set number                              " show line numbers
 set scrolloff=5                         " pad cursor and screen edge
 set cursorline                          " highlight current line
+set colorcolumn=101                     " highlight column
 set wildmenu                            " visual autocomplete for command menu
 set wildignore=*.o,*~,*.pyc
 set lazyredraw                          " redraw only when necessary
 
 " syntax highlighting
 syntax enable
-set t_Co=256                            " 256 terminal colors
-colorscheme solarized
 set background=dark
+colorscheme deep-space
 
 " tabs and spaces
 set tabstop=2                           " number of visual spaces per TAB
@@ -26,27 +29,24 @@ set smartcase                           " only ignore case if query is lowercase
 set incsearch                           " search as characters are enterd
 set hlsearch                            " highlight matches
 
-" folding
-"set foldenable
-"set foldlevelstart=10
-"set foldmethod=indent
-
 " status line
 set laststatus=2
-set statusline=
-set statusline+=%<\                     " cut at start
-set statusline+=%2*[%n%H%M%R%W]%*\      " buffer number, and flags
-set statusline+=%1*%y%*%*\              " file type
-set statusline+=%-40f\                  " relative path
-set statusline+=%=                      " seperate between right- and left-aligned
-set statusline+=%10(L(%l/%L)%)\         " line
-set statusline+=%2(C(%v/125)%)\         " column
-set statusline+=%P                      " percentage of file
+let g:airline_theme='deep_space'
+let g:airline_powerline_fonts=1
 
 noremap Q @q
 noremap <space> <pagedown>
 
-augroup reload_vimrc " {
-  autocmd!
-  autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END " }
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check.
+if (empty($TMUX))
+    if (has("nvim"))
+        "For Neovim 0.1.3 and 0.1.4
+        let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    endif
+
+    "For Neovim 0.1.5+ and Vim 7.4.1799+
+    if (has("termguicolors"))
+        set termguicolors
+    endif
+endif
