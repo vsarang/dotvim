@@ -1,12 +1,13 @@
 execute pathogen#infect()
-set nocompatible	" Use Vim defaults instead of 100% vi compatibility
-set backspace=2		" more powerful backspacing
+set nocompatible	                      " Use Vim defaults instead of 100% vi compatibility
+set backspace=2		                      " more powerful backspacing
+set updatetime=250                      " update once every 250ms
 
 " decorations
 set number                              " show line numbers
 set scrolloff=5                         " pad cursor and screen edge
 set cursorline                          " highlight current line
-set colorcolumn=101                     " highlight column
+set colorcolumn=100                     " highlight column
 set wildmenu                            " visual autocomplete for command menu
 set wildignore=*.o,*~,*.pyc
 set lazyredraw                          " redraw only when necessary
