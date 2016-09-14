@@ -16,3 +16,6 @@
 [submodule "bundle/vim-deep-space"]
 	path = bundle/vim-deep-space
 	url = https://github.com/tyrannicaltoucan/vim-deep-space.git
+[submodule "bundle/ultisnips"]
+	path = bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips.git

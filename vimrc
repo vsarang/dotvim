@@ -35,6 +35,11 @@ set laststatus=2
 let g:airline_theme='deep_space'
 let g:airline_powerline_fonts=1
 
+" ultisnip
+let g:UltiSnipsExpandTrigger="<c-b>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 noremap Q @q
 noremap <space> <pagedown>
 
