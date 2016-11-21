@@ -16,6 +16,7 @@ set lazyredraw                          " redraw only when necessary
 syntax enable
 set background=dark
 colorscheme deep-space
+autocmd FileType javascript JsPreTmpl html
 
 " tabs and spaces
 set tabstop=2                           " number of visual spaces per TAB
@@ -36,9 +37,9 @@ let g:airline_theme='deep_space'
 let g:airline_powerline_fonts=1
 
 " ultisnip
-let g:UltiSnipsExpandTrigger="<c-b>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger="<c-x>"
+let g:UltiSnipsJumpForwardTrigger="<c-x>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 noremap Q @q
 noremap <space> <pagedown>

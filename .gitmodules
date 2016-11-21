@@ -19,3 +19,9 @@
 [submodule "bundle/ultisnips"]
 	path = bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "bundle/vim-js-pretty-template"]
+	path = bundle/vim-js-pretty-template
+	url = https://github.com/Quramy/vim-js-pretty-template

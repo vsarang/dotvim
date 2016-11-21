@@ -1,0 +1,206 @@
+# Jasmine
+snippet des "describe(...)" m
+describe('$1', () => {
+  $0
+});
+endsnippet
+
+snippet cdes "chained describe(...)" m
+describe('${1:elementClass}', () => {
+  let $2;
+
+  beforeEach(() => {
+    ${2:elementName} = ${4:parentName}.props.children;
+  });
+
+  it('should have the correct type and className', () => {
+    expect($2.type).toBe('${3:childType}');
+    expect($2.props.className).toBe('$1');
+  });
+
+  $0
+});
+endsnippet
+
+snippet tdes "tail describe(...)" m
+describe('${1:elementClass}', () => {
+  let $2;
+
+  beforeEach(() => {
+    ${2:elementName} = ${3:parentName}.props.children;
+  });
+
+  it('should have the correct type$0', () => {
+    expect($2.type).toBe($1);
+  });
+});
+endsnippet
+
+snippet it "it(...)" m
+it('$1', () => {
+  $0
+});
+endsnippet
+
+snippet bef "beforeEach(...)" m
+beforeEach(() => {
+  $0
+});
+endsnippet
+
+snippet inj "beforeEach(inject(...))" m
+let $1;
+
+beforeEach(inject((_${1:Service}_) => {
+  $1 = _$1_;
+  stubApiModelGet($1);
+
+  $0
+}));
+endsnippet
+
+snippet cspy "jasmine.createSpy(...)" m
+${1:name}: jasmine.createSpy('$1')$0
+endsnippet
+
+snippet spy "spyOn(...)" m
+spyOn($1, '$2');
+endsnippet
+
+# React
+snippet react "Basic React Component" m
+import React from 'react';
+import config from './config';
+
+const ${1:name} = React.createClass({
+  propTypes: {
+  },
+
+  render() {
+    return (
+      $0
+    );
+  }
+});
+
+export default $1;
+endsnippet
+
+snippet creact "Connected React Component" m
+import React from 'react';
+import { connect } from 'react-redux';
+import config from './config';
+
+export const ${1:name} = React.createClass({
+  propTypes: {
+  },
+
+  render() {
+    return (
+      $0
+    );
+  }
+});
+
+export function mapStateToProps(state) {
+  return {
+  };
+}
+
+export const mapDispatchToProps = {
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)($1);
+endsnippet
+
+snippet reactTest "Basic React Component Test" m
+import React from 'react';
+
+import $1 from 'components/${2:directory}/$1';
+import { config } from 'components/$2/$1';
+
+import { stubApiModelGet } from 'model-helpers';
+import { shallowRender } from 'react-helpers';
+
+describe('${1:name}', () => {
+  let properties, component;
+
+  function render() {
+    ({ component } = shallowRender(<$1 { ...properties } />));
+  }
+  $0
+  beforeEach(() => {
+    properties = {
+    };
+
+    render();
+  });
+
+  describe('render', () => {
+  });
+});
+endsnippet
+
+snippet creactTest "Connected React Component Test" m
+import React from 'react';
+
+import { $1, mapStateToProps, mapDispatchToProps } from 'components/${2:directory}/$1';
+import { config } from 'components/$2/$1';
+
+import { stubApiModelGet } from 'model-helpers';
+import { shallowRender } from 'react-helpers';
+
+describe('${1:name}', () => {
+  let properties, component;
+
+  function render() {
+    ({ component } = shallowRender(<$1 { ...properties } />));
+  }
+  $0
+  beforeEach(() => {
+    properties = {
+    };
+
+    render();
+  });
+
+  describe('render', () => {
+  });
+
+  describe('mapStateToProps', () => {
+    let state;
+
+    beforeEach(() => {
+      state = {
+      };
+    });
+
+    it('should map the correct props', () => {
+    });
+  });
+
+  describe('mapDispatchToProps', () => {
+    it('should map the correct props', () => {
+      expect(mapDispatchToProps).toEqual({
+      });
+    });
+  });
+});
+endsnippet
+
+# NextCapital
+snippet ncPage "NextCapital React Page DO" m
+<div className="bb-r-page-header-wrapper" />
+  $1
+</div>
+<ReactPageContentWrapper>
+  $0
+</ReactPageContentWrapper>
+endsnippet
+
+# HTML
+snippet div "<div></div>"
+<div className="$1">
+  $0
+</div>
+endsnippet
