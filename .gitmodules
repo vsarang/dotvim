@@ -25,3 +25,6 @@
 [submodule "bundle/vim-js-pretty-template"]
 	path = bundle/vim-js-pretty-template
 	url = https://github.com/Quramy/vim-js-pretty-template
+[submodule "bundle/ctrlp.vim"]
+	path = bundle/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
