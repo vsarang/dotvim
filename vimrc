@@ -18,6 +18,7 @@ syntax enable
 set background=dark
 colorscheme deep-space
 autocmd FileType javascript JsPreTmpl html
+set completeopt-=preview
 
 " tabs and spaces
 set tabstop=2                           " number of visual spaces per TAB
