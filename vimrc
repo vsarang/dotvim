@@ -9,10 +9,11 @@ set scrolloff=5                         " pad cursor and screen edge
 set cursorline                          " highlight current line
 set colorcolumn=100                     " highlight column
 set wildmenu                            " visual autocomplete for command menu
-set wildignore=*.o,*~,*.pyc
+set wildignore=*.o,*~,*.pyc,*.swp
 set lazyredraw                          " redraw only when necessary
 
 " syntax highlighting
+set t_Co=256
 syntax enable
 set background=dark
 colorscheme deep-space
