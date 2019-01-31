@@ -9,11 +9,10 @@ set scrolloff=5                         " pad cursor and screen edge
 set cursorline                          " highlight current line
 set colorcolumn=100                     " highlight column
 set wildmenu                            " visual autocomplete for command menu
-set wildignore=*.o,*~,*.pyc,*.swp
+set wildignore=*.o,*~,*.pyc,*.swp,*/node_modules
 set lazyredraw                          " redraw only when necessary
 
 " syntax highlighting
-set t_Co=256
 syntax enable
 set background=dark
 colorscheme deep-space
@@ -44,7 +43,14 @@ let g:UltiSnipsJumpForwardTrigger="<c-x>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 noremap Q @q
-noremap <space> <pagedown>
+noremap W @w
+noremap <S-k> <Nop>
+
+command! Test execute ':w' | execute ':!clear && npm t %'
+command! TestDO execute ':w' | execute ':!clear && cd ~/workspaces/nextcapital-ui && grunt unit:designObjects --file=%:t'
+command! Snapshot execute ':w' | execute ':!clear && npm t % -- -u'
+command! Commit execute ':w' | execute ':silent !cd %:p:h && git add %:t' | execute ':redraw!'
+command! Reset execute ':silent !cd %:p:h && git reset head %:t' | execute ':redraw!'
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check.
