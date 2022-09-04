@@ -7,4 +7,7 @@ ln -s ~/.vim/tern-project ~/.tern-project
 
 cd ~/.vim
 git submodule update --init --recursive
+
+cd bundle/YouCompleteMe
+python3 install.py --ts-completer
 ```
