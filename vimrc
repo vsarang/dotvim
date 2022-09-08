@@ -42,6 +42,10 @@ let g:UltiSnipsExpandTrigger="<c-x>"
 let g:UltiSnipsJumpForwardTrigger="<c-x>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
+" prettier
+let g:prettier#autoformat = 1                 " format on save
+let g:prettier#autoformat_require_pragma = 0  " format on save
+
 noremap Q @q
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
