@@ -31,7 +31,7 @@ autocmd BufEnter * syntax sync fromstart
 set tabstop=2                           " number of visual spaces per TAB
 set softtabstop=2                       " number of spaces entered per TAB
 set shiftwidth=2                        " number of columns shifted by << and >>
-set expandtab                           " tabs are spaces
+set noexpandtab                         " tabs are tabs
 filetype indent on                      " filetype-specific TAB width
 
 " text search
