@@ -1,6 +1,8 @@
 execute pathogen#infect()
-set nocompatible	                      " Use Vim defaults instead of 100% vi compatibility
-set backspace=2		                      " more powerful backspacing
+set directory=~/.vim/swap//             " swap file directory (trailing // is intentional)
+set encoding=utf-8
+set nocompatible                        " use vim defaults instead of 100% vi compatibility
+set backspace=2                         " more powerful backspacing
 set updatetime=250                      " update once every 250ms
 
 " decorations
@@ -41,6 +43,16 @@ let g:airline_powerline_fonts=1
 let g:UltiSnipsExpandTrigger="<c-x>"
 let g:UltiSnipsJumpForwardTrigger="<c-x>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+
+" ctrl-p
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|dist|cdk\.out)|(\.(swp|git))$'
+
+" prettier
+let g:prettier#autoformat = 1                     " format on save
+let g:prettier#autoformat_require_pragma = 0      " format on save
+
+" NERDTree
+let NERDTreeShowHidden=1
 
 noremap Q @q
 
