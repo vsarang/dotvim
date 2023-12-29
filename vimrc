@@ -1,4 +1,5 @@
 execute pathogen#infect()
+set directory=~/.vim/swap//
 set encoding=utf-8
 set nocompatible	                      " Use Vim defaults instead of 100% vi compatibility
 set backspace=2		                      " more powerful backspacing
