@@ -45,7 +45,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-x>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " ctrl-p
-let g:ctrlp_custom_ignore = '\v[\/](node_modules)|(\.(swp|git))$'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|dist|cdk\.out)|(\.(swp|git))$'
 
 " prettier
 let g:prettier#autoformat = 1																		" format on save
