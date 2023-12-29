@@ -51,6 +51,9 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|dist|cdk\.out)|(\.(swp|git))$'
 let g:prettier#autoformat = 1																		" format on save
 let g:prettier#autoformat_require_pragma = 0										" format on save
 
+" NERDTree
+let NERDTreeShowHidden=1
+
 noremap Q @q
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
