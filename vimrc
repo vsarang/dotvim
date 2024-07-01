@@ -18,7 +18,7 @@ set lazyredraw                          " redraw only when necessary
 syntax enable
 set background=dark
 colorscheme deep-space
-autocmd FileType javascript JsPreTmpl html
+autocmd FileType javascript JsPreTmpl
 set completeopt-=preview
 
 " tabs and spaces
@@ -53,6 +53,20 @@ let g:prettier#autoformat_require_pragma = 0      " format on save
 
 " NERDTree
 let NERDTreeShowHidden=1
+
+" nerdtree-git-plugin
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'✹',
+                \ 'Staged'    :'✚',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'*',
+                \ 'Ignored'   :'✗',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
 
 noremap Q @q
 
