@@ -39,6 +39,38 @@ set laststatus=2
 let g:airline_theme='deep_space'
 let g:airline_powerline_fonts=1
 
+" YouCompleteMe
+let g:loaded_youcompleteme = 1          " disable YCM
+
+" Coc
+let s:gray1     = '#1b202a'
+let s:gray2     = '#232936'
+let s:gray3     = '#323c4d'
+let s:gray4     = '#51617d'
+let s:gray5     = '#9aa7bd'
+let s:red       = '#b15e7c'
+let s:green     = '#709d6c'
+let s:yellow    = '#b5a262'
+let s:blue      = '#608cc3'
+let s:purple    = '#8f72bf'
+let s:cyan      = '#56adb7'
+let s:orange    = '#b3785d'
+let s:pink      = '#c47ebd'
+
+hi CocHintSign guibg=#608cc3
+hi CocInfoSign guibg=#b5a262
+hi CocWarningSign guifg=#b3785d
+hi CocErrorSign guifg=#b15e7c
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
 " ultisnip
 let g:UltiSnipsExpandTrigger="<c-x>"
 let g:UltiSnipsJumpForwardTrigger="<c-x>"
@@ -48,8 +80,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|dist|cdk\.out)|(\.(swp|git))$'
 
 " prettier
-let g:prettier#autoformat = 1                     " format on save
-let g:prettier#autoformat_require_pragma = 0      " format on save
+" let g:prettier#autoformat = 1                     " format on save
+" let g:prettier#autoformat_require_pragma = 0      " format on save
 
 " NERDTree
 let NERDTreeShowHidden=1
