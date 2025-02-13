@@ -5,6 +5,9 @@ set nocompatible                        " use vim defaults instead of 100% vi co
 set backspace=2                         " more powerful backspacing
 set updatetime=250                      " update once every 250ms
 
+" keybindings
+noremap Q @q
+
 " decorations
 set number                              " show line numbers
 set scrolloff=5                         " pad cursor and screen edge
@@ -16,10 +19,13 @@ set lazyredraw                          " redraw only when necessary
 
 " syntax highlighting
 syntax enable
+set termguicolors
 set background=dark
+let g:deepspace_italics=1
 colorscheme deep-space
 autocmd FileType javascript JsPreTmpl
 set completeopt-=preview
+autocmd BufEnter * syntax sync fromstart
 
 " tabs and spaces
 set tabstop=2                           " number of visual spaces per TAB
@@ -39,8 +45,23 @@ set laststatus=2
 let g:airline_theme='deep_space'
 let g:airline_powerline_fonts=1
 
-" YouCompleteMe
-let g:loaded_youcompleteme = 1          " disable YCM
+" vimdiff
+highlight DiffAdd    cterm=NONE ctermfg=NONE ctermbg=17  gui=NONE guifg=NONE guibg=#324147
+highlight DiffDelete cterm=NONE ctermfg=52 ctermbg=52  gui=NONE guifg=#232936 guibg=#232936
+highlight DiffChange cterm=NONE ctermfg=NONE ctermbg=17  gui=NONE guifg=NONE guibg=#324147
+highlight DiffText   cterm=bold ctermfg=NONE ctermbg=28  gui=bold guifg=NONE guibg=#1c6b4c
+
+" claude.vim
+let g:claude_api_key = ''
+let g:claude_model = 'claude-3-5-haiku-20241022'
+" let g:claude_model = 'claude-3-5-sonnet-20241022'
+
+" prettier
+" let g:prettier#autoformat = 1                     " format on save
+" let g:prettier#autoformat_require_pragma = 0      " format on save
+
+" ctrl-p
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|dist|cdk\.out)|(\.(swp|git))$'
 
 " Coc
 let s:gray1     = '#1b202a'
@@ -61,6 +82,7 @@ hi CocHintSign guibg=#608cc3
 hi CocInfoSign guibg=#b5a262
 hi CocWarningSign guifg=#b3785d
 hi CocErrorSign guifg=#b15e7c
+hi CocUnusedHighlight guibg=#2b3343
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -70,18 +92,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-" ultisnip
-let g:UltiSnipsExpandTrigger="<c-x>"
-let g:UltiSnipsJumpForwardTrigger="<c-x>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-
-" ctrl-p
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|dist|cdk\.out)|(\.(swp|git))$'
-
-" prettier
-" let g:prettier#autoformat = 1                     " format on save
-" let g:prettier#autoformat_require_pragma = 0      " format on save
 
 " NERDTree
 let NERDTreeShowHidden=1
@@ -99,8 +109,6 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Clean'     :'✔︎',
                 \ 'Unknown'   :'?',
                 \ }
-
-noremap Q @q
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check.

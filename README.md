@@ -10,6 +10,11 @@ ln -s ~/.vim/tern-project ~/.tern-project
 cd ~/.vim
 git submodule update --init --recursive
 
-cd bundle/YouCompleteMe
-python3 install.py --ts-completer
+cd bundle/coc.nvim
+npm ci
+```
+
+Set Claude API key:
+```
+let g:claude_api_key = 'your_api_key_here'
 ```
