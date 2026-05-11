@@ -48,9 +48,8 @@ let g:airline_theme='deep_space'
 let g:airline_powerline_fonts=1
 
 " claude.vim
-let g:claude_api_key = ''
-let g:claude_model = 'claude-3-5-haiku-20241022'
-" let g:claude_model = 'claude-3-5-sonnet-20241022'
+let g:claude_model = 'claude-sonnet-4-6'
+let g:claude_api_key = $ANTHROPIC_API_KEY
 
 " prettier
 " let g:prettier#autoformat = 1                     " format on save
@@ -290,3 +289,9 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+if &term =~ '256color'
+    " Disable Background Color Erase (BCE) so that color schemes
+    " work properly when Vim is used inside tmux and GNU screen.
+    set t_ut=
+endif
